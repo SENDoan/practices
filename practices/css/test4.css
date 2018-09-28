@@ -24,3 +24,8 @@ ul#ulList{
     right: 9px;
     top: 3px;
 }
+.modal-css{
+    position: fixed;
+    left: 40%;
+    top:20%;
+}

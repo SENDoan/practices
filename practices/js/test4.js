@@ -42,11 +42,22 @@ $(document).ready(function () {
 
         var $btn = $("<button></button>").text("Xóa");
         $btn.addClass("btn btn-info del");
+        $btn.attr('data-toggle','modal');
+        $btn.attr('data-target', '#myModal');
         $li.append($btn);
 
-
         $($btn).click(function () {
-            $($btn).parent().remove();
+            var $name = ($($btn).parent().text()).substr(0,($($btn).parent().text().length) - 3 );
+            $("#txtName").text($name);
+            $("#btnY").click(function () {
+                if($name == $("#txtName").text()){
+                    $($btn).parent().remove();
+                    $("#btnY").attr('data-dismiss', 'modal');
+                }
+            });
+            $("#btnN").click(function () {
+                $("#myModal").attr('aria-hidden', 'true');
+            })
         });
     });
-})
+});
